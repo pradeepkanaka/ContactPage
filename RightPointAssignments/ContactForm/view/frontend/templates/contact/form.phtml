@@ -1,0 +1,31 @@
+<?php
+
+/** @var Magento\Framework\View\Element\Template $block */
+?>
+<form method="POST" action="<?= $block->getBaseUrl() . 'contactform/contactform/save' ?>" data-mage-init='{"validation": {}}'>
+    <div class="field controll ">
+        <label for="firstname " class="label required"><?= $block->escapeHtml(__('First Name')) ?></label>
+        <input type="text" id="first_name" name="first_name" class="letters-only" data-validate="{required:true}" />
+    </div>
+    <div class="field controll">
+        <label for="lastname" class="label"><?= $block->escapeHtml(__('Last Name')) ?></label>
+        <input type="text" id="last_name" name="last_name" data-validate="{'max-words':25}" />
+    </div>
+    <div class="field controll ">
+        <label for="emailid" class="label required"><?= $block->escapeHtml(__('Email ID')) ?></label>
+        <input type="text" id="email_id" class="validate-email" name="email_id" data-validate="{required:true, 'validate-email':true}" />
+    </div>
+    <div class="field controll ">
+        <label for="phone_number" class="label required"><?= $block->escapeHtml(__('Phone Number')) ?></label>
+        <input type="text" id="phone_number" name="phone_number"  data-validate="{required:true, 'validate-number':true}" />
+    </div>
+    <div class="field choice">
+        <div class="controll">
+            <input type="checkbox" id="newsletter_subscription" name="newsletter_subscription" />
+            <label for="newsletter_subscription" class="label"><?= $block->escapeHtml(__('Newsletter Subcription')) ?></label>
+        </div>
+    </div>
+    <div class="primary">
+        <input class="action save primary" type="submit" value="SUBMIT" />
+    </div>
+</form>

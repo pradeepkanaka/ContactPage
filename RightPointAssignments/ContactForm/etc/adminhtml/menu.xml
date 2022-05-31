@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="RightPointAssignments_ContactForm::contactform" 
+            title="Contact Form" 
+            translate="title" 
+            module="RightPointAssignments_ContactForm" 
+            sortOrder="30" 
+            resource="RightPointAssignments_ContactForm::contactform"/>
+        <add id="RightPointAssignments_ContactForm::contactform_manage" 
+             title="Contact Form List" 
+             translate="title" 
+             module="RightPointAssignments_ContactForm" 
+             sortOrder="10" 
+             parent="RightPointAssignments_ContactForm::contactform" 
+             action="contactform/contactform/index"
+             resource="RightPointAssignments_ContactForm::contactform_manage"/>
+    </menu>
+</config>
