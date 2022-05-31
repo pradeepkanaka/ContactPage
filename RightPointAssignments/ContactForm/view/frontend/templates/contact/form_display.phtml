@@ -1,0 +1,39 @@
+<?php
+
+/** @var Magento\Framework\View\Element\Template $block */
+/** @var RightPointAssignments\ContactForm\ViewModel\ContactForm $viewModel */
+$viewModel = $block->getData('contact_form_view_model');
+?>
+<div>
+    <h3><?= $block->escapeHtml('Contact Informations') ?></h3>
+</div>
+<div>
+    <table>
+        <thead>
+            <th><?= $block->escapeHtml('Serial Number') ?></th>
+            <th><?= $block->escapeHtml('First Name') ?></th>
+            <th><?= $block->escapeHtml('Last Name') ?></th>
+            <th><?= $block->escapeHtml('Email Id') ?></th>
+            <th><?= $block->escapeHtml('Phone Number') ?></th>
+            <th><?= $block->escapeHtml('Newsletter Subscription') ?></th>
+        </thead>
+        <tbody>
+        <?php foreach($viewModel->getFormData() as $formCollection) : ?>
+            <tr>
+                <td><?= $formCollection->getId(); ?></td>
+                <td><?= $formCollection->getFirstName(); ?></td>
+                <td><?= $formCollection->getLastName(); ?></td>
+                <td><?= $formCollection->getEmailId(); ?></td>
+                <td><?= $formCollection->getPhoneNumber(); ?></td>
+                <?php if ($formCollection->getNewsletterSubscription()): ?>
+                    <td><?= $block->escapeHtml('Subscribed') ?></td>
+                <?php endif; ?>
+                <?php if (!$formCollection->getNewsletterSubscription()): ?>
+                    <td><?= $block->escapeHtml('Not subscribed') ?></td>
+                <?php endif; ?>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+

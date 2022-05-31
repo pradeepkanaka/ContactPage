@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="rp_contact_form" resource="default" engine="innodb"
+            comment="Customer Contact Form">
+        <column xsi:type="int" name="entity_id" unsigned="false" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="varchar" name="first_name" length="50" comment="First Name"/>
+        <column xsi:type="varchar" name="last_name" length="25" comment="Last Name"/>
+        <column xsi:type="varchar" name="email_id" length="75" comment="Email Id"/>
+        <column xsi:type="int" name="phone_number" unsigned="true" comment="Phone Number"/>
+        <column xsi:type="smallint" name="newsletter_subscription" unsigned="true" nullable="false" default="0" comment="Is subscribed for news the letter"/>
+        <column xsi:type="datetime" name="created_at" nullable="false"  default="CURRENT_TIMESTAMP" on_update="false"/>
+        <column xsi:type="datetime" name="updated_at" nullable="true" default="CURRENT_TIMESTAMP" on_update="true"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="RP_CONTACT_FORM_EMAIL_ID_UNIQUE">
+            <column name="email_id"/>
+        </constraint>
+        <index referenceId="RP_CONTACT_FORM_PHONE_NUMBER" indexType="btree">
+            <column name="phone_number"/>
+        </index>
+    </table>
+</schema>
